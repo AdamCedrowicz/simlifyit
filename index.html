@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simplify IT — analityk danych, Katowice | Dashboardy, Power BI, automatyzacja raportów</title>
+  <meta name="description" content="Simplify IT: analityka danych dla firm. Dashboardy Power BI, automatyzacja raportów w SQL i Pythonie, porządkowanie danych. Katowice i zdalnie w całej Polsce.">
+  <meta name="theme-color" content="#123d2f">
+  <link rel="canonical" href="https://simplifyit.com.pl/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Simplify IT — analityk danych z Katowic">
+  <meta property="og:description" content="Zamieniam rozproszone arkusze w raporty i dashboardy, które czyta się w minutę.">
+  <meta property="og:url" content="https://simplifyit.com.pl/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Simplify IT",
+    "url": "https://simplifyit.com.pl/",
+    "description": "Analityka danych, dashboardy Power BI i automatyzacja raportów dla firm.",
+    "founder": {"@type": "Person", "name": "Adam Cedrowicz", "jobTitle": "Analityk danych"},
+    "address": {"@type": "PostalAddress", "addressLocality": "Katowice", "addressCountry": "PL"},
+    "areaServed": "PL",
+    "taxID": "9542843001",
+    "email": "kontakt@simplifyit.com.pl"
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
+
+<header class="hero" id="top">
+  <div class="hero-talk">
+    <a class="wordmark" href="#top" translate="no" aria-label="Simplify IT, strona główna">Simplify IT</a>
+    <div class="hero-pitch">
+      <p class="lead reveal-late">Analityk danych z&nbsp;Katowic. Zamieniam rozproszone arkusze w&nbsp;raporty i&nbsp;dashboardy, które czyta się w&nbsp;minutę.</p>
+      <a class="button reveal-late" href="mailto:kontakt@simplifyit.com.pl?subject=Bezp%C5%82atna%20rozmowa%20o%20danych&amp;body=Dzie%C5%84%20dobry%2C%0A%0Achcia%C5%82bym%20upro%C5%9Bci%C4%87%20raportowanie%20w%20mojej%20firmie.%20Obecnie%20korzystamy%20z%3A%20">Umów bezpłatną rozmowę</a>
+    </div>
+  </div>
+  <div class="hero-wide">
+    <nav class="nav" aria-label="Główna nawigacja">
+      <a href="#uslugi">Usługi</a>
+      <a href="#przyklady">Przykłady</a>
+      <a href="#proces">Jak pracuję</a>
+      <a href="#pytania">Pytania</a>
+      <a class="nav-contact" href="#kontakt">Kontakt</a>
+    </nav>
+    <h1 class="display lines" aria-label="Mniej arkuszy. Więcej sensu.">
+      <span class="line"><span data-line style="--i:0">Mniej arkuszy.</span></span>
+      <span class="line"><span data-line style="--i:1">Więcej sensu.</span></span>
+    </h1>
+
+    <figure class="hero-figure">
+      <div class="hero-badge">
+        <strong>1 liczba</strong>
+        <span>zamiast dwunastu wierszy w&nbsp;trzech formatach</span>
+      </div>
+
+      <!-- Live thing: the visitor simplifies a messy sheet into one answer -->
+      <div class="sheet" data-ui id="sheet" data-state="raw">
+        <div class="sheet-bar">
+          <span class="sheet-file">sprzedaz_Q3_FINAL_v7 (2).xlsx</span>
+          <button class="sheet-toggle" type="button" aria-pressed="false" aria-controls="sheet-raw sheet-simple">Uprość ten arkusz</button>
+        </div>
+        <div class="sheet-raw" id="sheet-raw">
+          <table>
+            <thead><tr><th scope="col">mies.</th><th scope="col">Region</th><th scope="col">Przychód</th><th scope="col">uwagi</th></tr></thead>
+            <tbody>
+              <tr><td>07.2026</td><td>Śląsk</td><td>142300</td><td></td></tr>
+              <tr><td>lipiec</td><td>malopolska</td><td>98 200,00</td><td>sprawdzić!!</td></tr>
+              <tr><td>2026-07</td><td>MAZOWSZE</td><td>121,5 tys.</td><td></td></tr>
+              <tr><td>VII</td><td>Wielkopolska </td><td>47 900 zł</td><td>od Kasi</td></tr>
+              <tr><td>08.2026</td><td>slask</td><td>151 800 zł</td><td></td></tr>
+              <tr><td>sierpień</td><td>Małopolska</td><td>94600 PLN</td><td>?</td></tr>
+              <tr><td>2026-08</td><td>Mazowsze</td><td>118.3k</td><td></td></tr>
+              <tr><td>VIII</td><td>wlkp</td><td>52 100,00</td><td>korekta</td></tr>
+              <tr><td>09.2026</td><td>ŚLĄSK</td><td>168,4 tys.</td><td></td></tr>
+              <tr><td>wrzesień</td><td>Małopolska</td><td>103 900</td><td></td></tr>
+              <tr><td>2026-09</td><td>Mazowsze </td><td>131200</td><td>wstępne</td></tr>
+              <tr><td>IX</td><td>Wielkopolska</td><td>54 100 zł</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sheet-simple" id="sheet-simple" aria-live="polite" hidden>
+          <p class="sheet-answer"><span class="sheet-total">1&nbsp;284&nbsp;300&nbsp;zł</span> przychodu w&nbsp;III&nbsp;kwartale</p>
+          <p class="sheet-finding">Śląsk daje 36% sprzedaży, a&nbsp;wrzesień był o&nbsp;11,6% lepszy od lipca.</p>
+          <ul class="sheet-bars" aria-label="Przychód według regionu">
+            <li style="--w:100%"><span>Śląsk</span><b>462 500 zł</b></li>
+            <li style="--w:80.2%"><span>Mazowsze</span><b>371 000 zł</b></li>
+            <li style="--w:64.2%"><span>Małopolska</span><b>296 700 zł</b></li>
+            <li style="--w:33.3%"><span>Wielkopolska</span><b>154 100 zł</b></li>
+          </ul>
+        </div>
+      </div>
+      <figcaption class="small">Kliknij „Uprość” — tak wygląda moja praca w&nbsp;skrócie. Dane przykładowe.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main id="tresc">
+
+  <section class="intro" aria-labelledby="intro-h">
+    <div class="intro-top">
+      <h2 id="intro-h" class="h-light">Raporty bez ręcznej roboty</h2>
+      <p class="intro-note">Jeśli co miesiąc ktoś w&nbsp;Twojej firmie kopiuje dane między plikami, ten czas da się odzyskać. Łączę źródła, liczę automatycznie i&nbsp;pokazuję tylko to, co potrzebne do decyzji.</p>
+    </div>
+    <ul class="facts">
+      <li><strong>Katowice</strong><span>i&nbsp;zdalnie w&nbsp;całej Polsce</span></li>
+      <li><strong>24 h</strong><span>na odpowiedź na zapytanie</span></li>
+      <li><strong>Faktura VAT</strong><span>umowa i&nbsp;NDA na start</span></li>
+      <li><strong>PL / EN</strong><span>raporty w&nbsp;obu językach</span></li>
+    </ul>
+  </section>
+
+  <section class="showcase" id="przyklady" aria-labelledby="przyklady-h">
+    <h2 id="przyklady-h" class="h-mid showcase-h">Co mogę zbudować</h2>
+    <div class="band">
+      <article class="panel panel-a" tabindex="0" aria-labelledby="p1">
+        <h3 id="p1" class="panel-title">Sprzedaż na<br>jednym ekranie</h3>
+        <div class="dash" data-ui>
+          <div class="dash-kpis">
+            <div><span>Przychód Q3</span><b>1,28 mln zł</b><i class="up">+9,4% r/r</i></div>
+            <div><span>Zamówienia</span><b>8 412</b><i class="up">+4,1%</i></div>
+            <div><span>Śr. koszyk</span><b>152,68 zł</b><i class="up">+5,1%</i></div>
+            <div><span>Marża</span><b>31,4%</b><i class="down">−0,8 pp</i></div>
+          </div>
+          <div class="dash-chart">
+            <div class="dash-chart-head"><span>Przychód tygodniowy, tys. zł</span><span>tydz. 27–39</span></div>
+            <svg viewBox="0 0 560 200" role="img" aria-label="Wykres przychodu tygodniowego, szczyt w tygodniu 36: 107,8 tys. zł">
+              <path class="grid" d="M8 54H552M8 104H552M8 154H552"/>
+              <path class="ln" d="M8.0 143.6 L53.3 121.1 L98.7 104.8 L144.0 130.7 L189.3 92.5 L234.7 81.6 L280.0 97.3 L325.3 112.3 L370.7 60.5 L416.0 36.6 L461.3 93.2 L506.7 100.7 L552.0 99.3"/>
+              <circle class="dot" cx="416" cy="36.6" r="5"/>
+              <text x="404" y="22" text-anchor="end">tydz. 36: 107,8</text>
+            </svg>
+          </div>
+          <table class="dash-table">
+            <thead><tr><th>Region</th><th>Przychód</th><th>Udział</th></tr></thead>
+            <tbody>
+              <tr class="sel"><td>Śląsk</td><td>462 500</td><td>36,0%</td></tr>
+              <tr><td>Mazowsze</td><td>371 000</td><td>28,9%</td></tr>
+              <tr><td>Małopolska</td><td>296 700</td><td>23,1%</td></tr>
+              <tr><td>Wielkopolska</td><td>154 100</td><td>12,0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel panel-b" tabindex="0" aria-labelledby="p2">
+        <h3 id="p2" class="panel-label">Raport sam przychodzi</h3>
+        <div class="mail" data-ui>
+          <div class="mail-head">
+            <span>Od: raporty@twojafirma.pl</span>
+            <span>pon., 07:00</span>
+          </div>
+          <p class="mail-subject">Tydzień 42: sprzedaż +6,2% t/t</p>
+          <svg viewBox="0 0 200 48" role="img" aria-label="Sprzedaż w ostatnich 8 tygodniach, rosnąca"><path class="ln" d="M4.0 37.7 L31.4 31.4 L58.9 33.5 L86.3 25.1 L113.7 29.3 L141.1 20.8 L168.6 22.9 L196.0 10.3"/></svg>
+          <ul>
+            <li>Najlepszy dzień: czwartek, 18 940 zł</li>
+            <li>3 produkty poniżej stanu minimalnego</li>
+            <li>Zwroty: 2,1% (cel: &lt; 3%)</li>
+          </ul>
+          <p class="mail-foot">Wygenerowano automatycznie z&nbsp;SQL + Python. Nikt tego nie kopiował.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-c" tabindex="0" aria-labelledby="p3">
+        <h3 id="p3" class="panel-label">Profil zawodnika</h3>
+        <div class="radar" data-ui>
+          <div class="radar-head"><b>Środkowy pomocnik, 23 l.</b><span>percentyle w&nbsp;lidze, na 90 min</span></div>
+          <svg viewBox="0 0 300 300" role="img" aria-label="Wykres radarowy: celność podań 92, podania progresywne 88, pressing 79, asysty oczekiwane 74, odbiory 61, dryblingi 45">
+            <path class="ring" d="M150.0 40.0 L245.3 95.0 L245.3 205.0 L150.0 260.0 L54.7 205.0 L54.7 95.0 Z"/>
+            <path class="ring" d="M150.0 95.0 L197.6 122.5 L197.6 177.5 L150.0 205.0 L102.4 177.5 L102.4 122.5 Z"/>
+            <path class="shape" d="M150.0 53.2 L220.5 109.3 L208.1 183.5 L150.0 236.9 L107.1 174.8 L62.4 99.4 Z"/>
+            <text x="150" y="22" text-anchor="middle">Prog. podania 88</text>
+            <text x="252" y="80" text-anchor="middle">xA 74</text>
+            <text x="252" y="226" text-anchor="middle">Odbiory 61</text>
+            <text x="150" y="288" text-anchor="middle">Pressing 79</text>
+            <text x="48" y="226" text-anchor="middle">Dryblingi 45</text>
+            <text x="48" y="80" text-anchor="middle">Podania 92%</text>
+          </svg>
+        </div>
+      </article>
+
+      <article class="panel panel-d" tabindex="0" aria-labelledby="p4">
+        <h3 id="p4" class="panel-label">Prognoza popytu</h3>
+        <div class="fc" data-ui>
+          <div class="fc-head"><b>+14% do marca</b><span>sztuki / tydz., przedział 80%</span></div>
+          <svg viewBox="0 0 560 220" role="img" aria-label="Historia sprzedaży i prognoza na 6 tygodni z przedziałem ufności">
+            <path class="band" d="M409.1 86.7 L432.6 70.0 L456.1 58.0 L479.6 46.0 L503.0 34.0 L526.5 22.0 L550.0 10.0 L550.0 76.7 L526.5 78.0 L503.0 79.3 L479.6 80.7 L456.1 82.0 L432.6 83.3 L409.1 86.7 Z"/>
+            <path class="ln" d="M10.0 190.0 L33.5 180.0 L57.0 183.3 L80.4 170.0 L103.9 160.0 L127.4 163.3 L150.9 150.0 L174.3 140.0 L197.8 146.7 L221.3 130.0 L244.8 120.0 L268.3 126.7 L291.7 113.3 L315.2 100.0 L338.7 106.7 L362.2 93.3 L385.7 83.3 L409.1 86.7"/>
+            <path class="ln fcl" d="M409.1 86.7 L432.6 76.7 L456.1 70.0 L479.6 63.3 L503.0 56.7 L526.5 50.0 L550.0 43.3"/>
+            <path class="today" d="M409 6V214"/>
+            <text x="402" y="206" text-anchor="end">dziś</text>
+          </svg>
+        </div>
+      </article>
+    </div>
+    <p class="caption">Cztery typowe realizacje, pokazane na danych przykładowych. Najedź na panel, żeby go powiększyć.</p>
+  </section>
+
+  <section class="process" id="proces" aria-labelledby="proces-h">
+    <h2 id="proces-h" class="h-big">Od arkusza do decyzji</h2>
+    <ol class="stages" data-ui>
+      <li class="stage s1" style="--g:12"><span class="stage-time">30 minut</span><p class="stage-what">Najpierw rozmowa: jakie decyzje podejmujesz i&nbsp;na jakich danych.</p></li>
+      <li class="stage s2" style="--g:22"><span class="stage-time">2–3 dni</span><p class="stage-what">Potem audyt: sprawdzam źródła, jakość danych i&nbsp;wyceniam projekt.</p></li>
+      <li class="stage s3" style="--g:52"><span class="stage-time">1–3 tygodnie</span><p class="stage-what">Następnie budowa: model danych, automatyzacja, dashboard.</p></li>
+      <li class="stage s4" style="--g:14"><span class="stage-time">1 dzień</span><p class="stage-what">Na końcu wdrożenie i&nbsp;szkolenie Twojego zespołu.</p></li>
+    </ol>
+  </section>
+
+  <section class="services" id="uslugi" aria-labelledby="uslugi-h">
+    <div class="services-stage">
+      <h2 id="uslugi-h" class="h-mid">Czym się zajmuję</h2>
+      <div class="deck" role="list">
+        <article class="card t1" role="listitem">
+          <span class="spine" aria-hidden="true">Dashboardy</span>
+          <h3>Dashboardy w&nbsp;Power BI i&nbsp;Looker Studio</h3>
+          <p>Jeden ekran z&nbsp;kluczowymi liczbami, odświeżany sam. Dla zarządu, sprzedaży i&nbsp;finansów.</p>
+          <div class="card-foot"><span>od 2 tygodni</span><a href="#kontakt">Zapytaj o&nbsp;wycenę</a></div>
+        </article>
+        <article class="card t2" role="listitem">
+          <span class="spine" aria-hidden="true">Automatyzacja</span>
+          <h3>Automatyzacja raportów</h3>
+          <p>SQL, Python i&nbsp;Power Query zamiast ręcznego kopiowania. Raport trafia do skrzynki o&nbsp;7:00.</p>
+          <div class="card-foot"><span>od 1 tygodnia</span><a href="#kontakt">Zapytaj o&nbsp;wycenę</a></div>
+        </article>
+        <article class="card t3" role="listitem">
+          <span class="spine" aria-hidden="true">Dane</span>
+          <h3>Porządkowanie i&nbsp;łączenie danych</h3>
+          <p>ERP, CRM, sklep i&nbsp;arkusze w&nbsp;jednym modelu. Jedna wersja prawdy zamiast pięciu plików.</p>
+          <div class="card-foot"><span>od 2 tygodni</span><a href="#kontakt">Zapytaj o&nbsp;wycenę</a></div>
+        </article>
+        <article class="card t1" role="listitem">
+          <span class="spine" aria-hidden="true">Analizy</span>
+          <h3>Analizy i&nbsp;prognozy</h3>
+          <p>Segmentacja klientów, prognoza popytu, analiza marży. Wynik w&nbsp;zdaniu, a&nbsp;nie w&nbsp;pliku.</p>
+          <div class="card-foot"><span>od 3 dni</span><a href="#kontakt">Zapytaj o&nbsp;wycenę</a></div>
+        </article>
+        <article class="card t2" role="listitem">
+          <span class="spine" aria-hidden="true">Sport</span>
+          <h3>Analityka sportowa</h3>
+          <p>Profile zawodników, scouting i&nbsp;raporty meczowe na danych eventowych dla klubów i&nbsp;akademii.</p>
+          <div class="card-foot"><span>od 1 tygodnia</span><a href="#kontakt">Zapytaj o&nbsp;wycenę</a></div>
+        </article>
+        <article class="card t3" role="listitem">
+          <span class="spine" aria-hidden="true">Szkolenia</span>
+          <h3>Szkolenia z&nbsp;Excela i&nbsp;Power BI</h3>
+          <p>Warsztaty na Twoich danych, żeby zespół sam poprawiał i&nbsp;rozwijał raporty.</p>
+          <div class="card-foot"><span>od 1 dnia</span><a href="#kontakt">Zapytaj o&nbsp;wycenę</a></div>
+        </article>
+      </div>
+      <p class="deck-note">Sześć obszarów, jeden cel: mniej czasu nad danymi, więcej nad decyzjami. <a href="#kontakt">Opisz swój przypadek</a></p>
+    </div>
+  </section>
+
+  <section class="about" id="o-mnie" aria-labelledby="o-mnie-h">
+    <h2 id="o-mnie-h" class="h-mid about-h">Kto za tym stoi</h2>
+    <div class="about-row">
+      <dl class="about-facts">
+        <div><dt>Firma</dt><dd>Simplify IT Adam Cedrowicz</dd></div>
+        <div><dt>Siedziba</dt><dd>Katowice</dd></div>
+        <div><dt>Zespół</dt><dd>Jedna osoba, bez pośredników</dd></div>
+      </dl>
+      <p class="about-text">Nazywam się Adam Cedrowicz i&nbsp;jestem analitykiem danych. Pracuję z&nbsp;danymi sprzedażowymi, finansowymi i&nbsp;sportowymi. Z&nbsp;każdym klientem rozmawiam bezpośrednio, a&nbsp;każdy raport, który oddaję, umiem wytłumaczyć w&nbsp;dwóch zdaniach. Jeśli nie umiem, to znaczy, że nie jest jeszcze dość prosty.</p>
+    </div>
+    <div class="about-row about-record">
+      <p class="about-word">Narzędzia</p>
+      <ul class="record">
+        <li><span>Power BI, DAX</span><span>wizualizacja</span></li>
+        <li><span>Looker Studio</span><span>wizualizacja</span></li>
+        <li><span>Excel, Power Query</span><span>arkusze</span></li>
+        <li><span>Google Sheets, Apps Script</span><span>arkusze</span></li>
+        <li><span>SQL Server, PostgreSQL</span><span>bazy</span></li>
+        <li><span>BigQuery</span><span>bazy</span></li>
+      </ul>
+      <ul class="record">
+        <li><span>Python: pandas, scikit-learn</span><span>analiza</span></li>
+        <li><span>Statystyka i&nbsp;prognozy</span><span>analiza</span></li>
+        <li><span>Dane eventowe w&nbsp;piłce nożnej</span><span>sport</span></li>
+        <li><span>Airflow, harmonogramy</span><span>automatyzacja</span></li>
+        <li><span>REST API, integracje</span><span>automatyzacja</span></li>
+        <li><span>Git</span><span>warsztat</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq" id="pytania" aria-labelledby="pytania-h">
+    <div class="faq-head"><h2 id="pytania-h" class="h-big">Częste pytania</h2></div>
+    <div class="qa">
+      <h3>Ile to kosztuje?</h3>
+      <p>Po bezpłatnej rozmowie i&nbsp;krótkim audycie dostajesz stałą cenę za cały projekt. Przy stałej współpracy proponuję miesięczny abonament z&nbsp;pulą godzin na zmiany i&nbsp;nowe raporty.</p>
+    </div>
+    <div class="qa">
+      <h3>Czy potrzebuję hurtowni danych?</h3>
+      <p>Nie. Wiele projektów zaczyna się od plików Excel i&nbsp;eksportów z&nbsp;systemu. Jeśli hurtownia będzie potrzebna, powiem to wprost i&nbsp;wyjaśnię dlaczego.</p>
+    </div>
+    <div class="qa">
+      <h3>Na jakich narzędziach pracujesz?</h3>
+      <p>Najczęściej Power BI, SQL i&nbsp;Python. Dopasowuję się jednak do tego, co już masz i&nbsp;za co płacisz, zamiast dokładać kolejne licencje.</p>
+    </div>
+    <div class="qa">
+      <h3>Co z&nbsp;bezpieczeństwem danych?</h3>
+      <p>Podpisuję NDA i&nbsp;umowę powierzenia danych zgodną z&nbsp;RODO. Gdy to możliwe, pracuję na Twoim środowisku i&nbsp;Twoich kontach, więc dane nie opuszczają firmy.</p>
+    </div>
+    <div class="qa">
+      <h3>Co, jeśli coś przestanie działać?</h3>
+      <p>Każdy projekt ma 30 dni wsparcia po wdrożeniu i&nbsp;dokumentację, z&nbsp;której skorzysta Twój zespół. Raporty buduję tak, żeby nie zależały ode mnie.</p>
+    </div>
+    <div class="qa">
+      <h3>Czy pracujesz zdalnie?</h3>
+      <p>Tak, z&nbsp;klientami w&nbsp;całej Polsce. Na Śląsku chętnie przyjadę na warsztat albo na start projektu.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt" aria-labelledby="kontakt-h">
+    <h2 id="kontakt-h" class="sr-only">Kontakt</h2>
+    <p class="contact-line">Pokaż mi arkusz, którego nikt nie lubi otwierać. Wrócę z&nbsp;planem, jak go uprościć.</p>
+    <svg class="contact-pic" viewBox="0 0 160 160" role="img" aria-label="Rysunek katowickiego Spodka">
+      <rect width="160" height="160" class="pic-ground"/>
+      <path class="pic-dome" d="M14 92 L80 60 L146 92 Z"/>
+      <path class="pic-bowl" d="M14 92 L146 92 L112 112 L48 112 Z"/>
+      <path class="pic-stair" d="M28 112 h104 v6 H28 Z M38 118 h84 v6 H38 Z"/>
+      <path class="pic-ground2" d="M0 124 H160 V160 H0 Z"/>
+    </svg>
+    <div class="contact-links">
+      <p class="contact-q">Porozmawiamy o&nbsp;Twoich danych?</p>
+      <a href="mailto:kontakt@simplifyit.com.pl">kontakt@simplifyit.com.pl</a>
+      <a href="mailto:kontakt@simplifyit.com.pl?subject=Bezp%C5%82atna%2030-minutowa%20rozmowa">Umów 30 minut rozmowy</a>
+      <p class="small soft">Katowice · odpowiadam w&nbsp;ciągu jednego dnia roboczego</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-name" translate="no" aria-hidden="true">Simplify IT</p>
+  <div class="footer-legal small">
+    <span>Simplify IT Adam Cedrowicz</span>
+    <span>Katowice</span>
+    <span>NIP 954-284-30-01</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
