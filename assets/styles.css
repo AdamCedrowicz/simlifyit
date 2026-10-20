@@ -107,7 +107,9 @@ img, svg { display: block; max-width: 100%; }
   column-gap: 0;
 }
 .hero-talk { display: flex; flex-direction: column; padding-right: 32px; }
-.wordmark { font-weight: 700; font-size: var(--step-lead); letter-spacing: -0.03em; text-decoration: none; }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; align-self: flex-start; font-weight: 700; font-size: var(--step-lead); letter-spacing: -0.03em; text-decoration: none; }
+.logo-mark { width: 52px; height: 32px; flex: none; transition: transform 240ms var(--ease-out); }
+.wordmark:hover .logo-mark { transform: translateX(3px); }
 .hero-pitch { margin-top: calc(30svh - 60px); display: grid; gap: 32px; justify-items: start; }
 .lead { font-size: var(--step-lead); line-height: 1.35; max-width: 24ch; }
 .hero-wide { min-width: 0; }
@@ -292,23 +294,23 @@ img, svg { display: block; max-width: 100%; }
 .card.t3 { background: var(--tint-3); }
 .card h3 { font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; max-width: 18ch; }
 .card p { font-size: var(--step-body); max-width: 46ch; }
-.card-foot { display: flex; justify-content: space-between; gap: 16px; font-size: var(--step-body); }
+.card-foot { display: flex; gap: 16px; font-size: var(--step-body); }
 .card-foot a { font-weight: 600; }
 .deck-note { margin-top: 48px; font-size: var(--step-body); }
 .deck-note a { font-weight: 600; margin-left: 8px; }
 
 .spine { display: none; }
-@media (max-width: 999px) {
+@media (max-width: 1199px) {
   .deck { display: grid; overflow: visible; }
   .card { height: auto; min-height: 240px; }
 }
 
 /* pinned version, wide screens with JS: past cards fold to spines on the left, coming ones wait as spines on the right */
-@media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
   .js .services { height: 220svh; }
   .js .services-stage { position: sticky; top: 0; height: 100svh; padding-top: 112px; display: flex; flex-direction: column; overflow: clip; }
   .js .deck { position: relative; height: 360px; overflow: visible; display: block; flex: none; }
-  .js .card { position: absolute; top: 0; left: 0; width: 620px; transition: transform 650ms var(--ease-out), width 650ms var(--ease-out); }
+  .js .card { position: absolute; top: 0; left: 0; width: var(--open-w, 620px); transition: transform 650ms var(--ease-out), width 650ms var(--ease-out); }
   .js .card.is-spine { width: 120px; padding: 28px 0; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
   .js .card.is-spine > :not(.spine) { display: none; }
   .js .card.is-spine .spine { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.02em; }
@@ -354,7 +356,9 @@ img, svg { display: block; max-width: 100%; }
 .contact-links a:hover { opacity: 0.75; }
 .contact-links .small { margin-top: 10px; }
 .footer { background: var(--deep); color: var(--accent); padding: 0 var(--margin) 32px; overflow: clip; }
-.footer-name { font-size: 19vw; line-height: 0.8; margin-left: -0.05em; white-space: nowrap; }
+.footer-brand { display: flex; align-items: center; gap: 3vw; }
+.footer-mark { width: 21vw; height: 13vw; flex: none; }
+.footer-name { font-size: 15vw; line-height: 0.8; margin-left: -0.05em; white-space: nowrap; }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 32px; color: var(--muted); }
 
 /* ---------- Motion ---------- */
@@ -453,5 +457,7 @@ img, svg { display: block; max-width: 100%; }
   .contact-line { grid-column: 1 / -1; max-width: none; }
   .contact-pic { grid-column: 1; grid-row: 2; width: 96px; height: 96px; margin-top: 40px; }
   .contact-links { grid-column: 2; grid-row: 2; margin-top: 40px; }
+  .footer-brand { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .footer-mark { width: 40vw; height: 25vw; }
   .footer-name { font-size: 22vw; }
 }

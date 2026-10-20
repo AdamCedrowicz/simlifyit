@@ -57,7 +57,7 @@
   // Services deck: cards fold into spines as the pinned stage scrolls
   const services = document.querySelector('.services');
   const cards = services ? [...services.querySelectorAll('.card')] : [];
-  const wide = window.matchMedia('(min-width: 1000px)');
+  const wide = window.matchMedia('(min-width: 1200px)');
   const SPINE = 120, GAP = 12;
   let active = -1;
 
@@ -66,6 +66,9 @@
     active = index;
     const deckWidth = cards[0].parentElement.clientWidth;
     const last = cards.length - 1;
+    // the open card takes whatever room the spines on both sides leave
+    const openWidth = Math.min(720, deckWidth - last * (SPINE + GAP));
+    services.style.setProperty('--open-w', openWidth + 'px');
     cards.forEach((card, i) => {
       const x = i <= index
         ? i * (SPINE + GAP)
