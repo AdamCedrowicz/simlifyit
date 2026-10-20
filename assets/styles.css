@@ -191,7 +191,7 @@ img, svg { display: block; max-width: 100%; }
 .intro-top h2 { grid-column: 1 / span 6; }
 .intro-note { grid-column: 9 / span 4; font-size: var(--step-body); max-width: 34ch; }
 .facts { margin-top: 120px; display: flex; justify-content: space-between; gap: 32px; }
-.facts li { display: grid; gap: 6px; }
+.facts li { display: grid; gap: 6px; align-content: start; }
 .facts strong { font-size: var(--step-lead); font-weight: 350; letter-spacing: -0.035em; line-height: 1; }
 .facts span { font-size: var(--step-small); color: var(--paper-muted); }
 
@@ -307,11 +307,11 @@ img, svg { display: block; max-width: 100%; }
 
 /* pinned version, wide screens with JS: past cards fold to spines on the left, coming ones wait as spines on the right */
 @media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
-  .js .services { height: 220svh; }
+  .js .services { height: 240svh; }
   .js .services-stage { position: sticky; top: 0; height: 100svh; padding-top: 112px; display: flex; flex-direction: column; overflow: clip; }
   .js .deck { position: relative; height: 360px; overflow: visible; display: block; flex: none; }
   .js .card { position: absolute; top: 0; left: 0; width: var(--open-w, 620px); transition: transform 650ms var(--ease-out), width 650ms var(--ease-out); }
-  .js .card.is-spine { width: 120px; padding: 28px 0; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+  .js .card.is-spine { width: 96px; padding: 28px 0; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
   .js .card.is-spine > :not(.spine) { display: none; }
   .js .card.is-spine .spine { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.02em; }
   .js .card.is-spine:hover { filter: brightness(0.97); }
@@ -321,7 +321,7 @@ img, svg { display: block; max-width: 100%; }
 .about { padding: var(--gap-section) var(--margin) 0; }
 .about-h { margin-bottom: 72px; }
 .about-row { display: grid; grid-template-columns: var(--axis) 1fr; }
-.about-facts { display: grid; gap: 20px; align-content: start; width: 220px; }
+.about-facts { display: grid; gap: 20px; align-content: start; width: 300px; padding-right: 32px; }
 .about-facts dt { font-size: var(--step-small); color: var(--muted); }
 .about-facts dd { font-size: var(--step-body); font-weight: 500; }
 .about-text { font-size: var(--step-lead); line-height: 1.35; max-width: 56ch; letter-spacing: -0.01em; }
@@ -329,6 +329,10 @@ img, svg { display: block; max-width: 100%; }
 .about-word { font-size: var(--step-body); font-weight: 600; }
 .about-record { grid-template-columns: var(--axis) 300px 300px; column-gap: 64px; }
 .about-record .about-word { grid-column: 1; }
+.record-wide { grid-column: 2 / span 2; }
+.about-tools { margin-top: 72px; }
+.about-record:not(.about-tools) { padding-bottom: 0; }
+.contact-pic { object-fit: cover; }
 .record { display: grid; gap: 12px; font-size: var(--step-body); }
 .record li { display: flex; justify-content: space-between; gap: 16px; }
 .record li span:last-child { color: var(--muted); }
@@ -345,11 +349,6 @@ img, svg { display: block; max-width: 100%; }
 .contact { background: var(--deep); color: var(--ink); display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: start; padding: 160px var(--margin) 120px; }
 .contact-line { grid-column: 1 / span 5; font-size: var(--step-lead); line-height: 1.12; letter-spacing: -0.03em; font-weight: 500; max-width: 24ch; }
 .contact-pic { grid-column: 8 / span 2; width: 160px; height: 160px; }
-.pic-ground { fill: var(--tint-3); }
-.pic-dome { fill: var(--deep); }
-.pic-bowl { fill: var(--accent); }
-.pic-stair { fill: var(--deep); }
-.pic-ground2 { fill: var(--paper); }
 .contact-links { grid-column: 10 / span 3; display: grid; gap: 10px; justify-items: start; font-size: var(--step-body); }
 .contact-q { font-weight: 550; margin-bottom: 10px; }
 .contact-links a { font-weight: 500; transition: opacity 160ms; overflow-wrap: anywhere; }
@@ -368,11 +367,9 @@ img, svg { display: block; max-width: 100%; }
   .js .hero-figure { opacity: 0; animation: rise 900ms var(--ease-out) 900ms forwards; }
   .js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); transition-delay: calc(var(--n, 0) * 75ms); }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
-  .contact-pic .pic-dome { transform-origin: 80px 92px; animation: hover-dome 6s ease-in-out infinite alternate; }
 }
 @keyframes line-up { to { transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-@keyframes hover-dome { to { transform: translateY(-4px); } }
 
 /* ---------- Tablet ---------- */
 @media (max-width: 1100px) {
@@ -383,6 +380,7 @@ img, svg { display: block; max-width: 100%; }
   .facts { flex-wrap: wrap; }
   .about-record { grid-template-columns: 1fr 1fr; row-gap: 32px; column-gap: 48px; }
   .about-record .about-word { grid-column: 1 / -1; }
+  .record-wide { grid-column: 1 / -1; }
   .contact-line { grid-column: 1 / span 7; }
   .contact-pic { grid-column: 1 / span 3; grid-row: 2; margin-top: 48px; }
   .contact-links { grid-column: 7 / span 6; grid-row: 1 / span 2; }

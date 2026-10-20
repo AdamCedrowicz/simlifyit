@@ -58,7 +58,7 @@
   const services = document.querySelector('.services');
   const cards = services ? [...services.querySelectorAll('.card')] : [];
   const wide = window.matchMedia('(min-width: 1200px)');
-  const SPINE = 120, GAP = 12;
+  const SPINE = 96, GAP = 12;
   let active = -1;
 
   function layout(index, force) {
