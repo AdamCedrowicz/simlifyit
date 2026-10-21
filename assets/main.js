@@ -46,9 +46,10 @@
   if ('IntersectionObserver' in window && !reduce) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        // also reveal anything the visitor already scrolled past, so a fast flick never leaves gaps
+        if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -12% 0px' });
+    }, { rootMargin: '0px 0px -8% 0px' });
     targets.forEach(t => io.observe(t));
   } else {
     targets.forEach(t => t.classList.add('is-in'));
