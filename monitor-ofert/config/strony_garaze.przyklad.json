@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Przykład – Urząd Miasta (BIP, sprzedaż nieruchomości)",
+    "city": "Katowice",
+    "type": "urzad",
+    "url": "https://bip.przyklad.pl/ogloszenia/sprzedaz-nieruchomosci",
+    "enabled": true,
+    "note": "Format jak w strony.json z monitora PowerShell. Opcjonalnie \"render\": \"browser\" dla stron w JavaScript."
+  }
+]

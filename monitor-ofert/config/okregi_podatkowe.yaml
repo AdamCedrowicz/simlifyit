@@ -1,0 +1,7 @@
+# Okręgi podatkowe (I–IV) gmin – DO UZUPEŁNIENIA na podstawie rozporządzenia
+# w sprawie zaliczenia gmin do okręgów podatkowych. Dopóki gminy brak na liście,
+# raport liczy ha przeliczeniowe w okręgu domyślnym i oznacza go jako „założony”.
+domyslny: III
+gminy: {}
+#  Kruszyna: III
+#  Kłomnice: III

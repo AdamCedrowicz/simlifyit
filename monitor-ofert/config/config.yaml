@@ -1,0 +1,26 @@
+# Opcje monitora. Sekrety (Gmail, identyfikator działki) NIE tutaj – tylko w GitHub Secrets.
+
+garaze:
+  includeParkingSpaces: false
+  includeRental: false
+  requestTimeoutSeconds: 30
+  delayBetweenRequestsMs: 400
+  failureAlertAfter: 6
+  maxDeepLinksPerSite: 15
+  visitedMemoryDays: 120
+  startupMail: false        # true = przy pierwszym przebiegu jeden mail z obecnym stanem
+
+dzialki:
+  punkt_odniesienia:
+    nazwa: Jacków (gm. Kruszyna)
+    # Dokładny środek liczony z ULDK na podstawie sekretu REF_PARCEL_ID (identyfikator działki).
+    # Poniżej przybliżony środek okolicy, używany tylko gdy sekretu brak.
+    lat: 50.96
+    lon: 19.26
+    parcel_id: ""
+  promien_km: 35
+  waski_pas_m: 20
+  uldk_promien_m: 150       # siatka zapytań wokół współrzędnych z ogłoszenia (Otodom: przybliżenie ok. 100 m)
+  uldk_rownolegle: 8
+  failureAlertAfter: 6
+  mail_startowy: false
